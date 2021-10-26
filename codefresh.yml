@@ -1,0 +1,77 @@
+version: '1.0'
+steps:
+  main_clone:
+    title: Cloning main repository...
+    type: git-clone
+    repo: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}'
+    revision: '${{CF_REVISION}}'
+  BuildingDockerImage:
+    type: build
+    title: Building Docker Image
+    registry: '${{REPOSITORY_NAME}}'
+    image_name: '${{REPOSITORY_NAME}}'
+    working_directory: ./
+    dockerfile: Dockerfile
+    tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
+    build_arguments:
+      - NODE_ENV=${{NODE_ENV}}
+      - NPM_TOKEN=${{NPM_TOKEN}}
+      - AWS_ACCESS_KEY_ID=${{API_AWS_ACCESS_KEY_ID}}
+      - AWS_SECRET_ACCESS_KEY=${{API_AWS_SECRET_ACCESS_KEY}}
+      - CONFIG_ENV=${{CONFIG_ENV}}
+  RunningDeployScript:
+    title: Running Deploy Script
+    image: 'codefresh/cf-deploy-ecs:latest'
+    working_directory: '${{main_clone}}'
+    entry_point:
+      - /bin/sh
+      - /codefresh/volume/cf-generated/deploy_script
+    create_file:
+      path: /codefresh/volume/cf-generated
+      name: deploy_script
+      content: |2-
+         # Required Environment Variables:
+         #
+         # AWS_ACCESS_KEY_ID - AWS access key
+         # AWS_SECRET_ACCESS_KEY - AWS secret access key
+         #
+         # ECS deploy command arguments:
+         #
+         # AWS_REGION - target AWS region
+         # CLUSTER_NAME - ECS cluster name
+         # SERVICE_NAME - ECS service names
+         #
+         # Use command below to deploy application to AWS ECS
+
+         # cfecs-update ${{AWS_REGION}} ${{CLUSTER_NAME}} ${{SERVICE_NAME}}
+         #
+         # read more here: https://docs.codefresh.io/docs/amazon-ecs
+
+        cfecs-update ${{AWS_REGION}} ${{CLUSTER_NAME}} ${{SERVICE_NAME}}
+  # FetchSecrets:
+  #   title: Fetch Secrets
+  #   description: Fetch secrets from AWS
+  #   image: alpine:3.10
+  #   commands:
+  #     - apk -v --update add python py-pip
+  #     - pip install --upgrade awscli==1.16
+  #     - cf_export STACKBIT_SECRETS="$(aws secretsmanager get-secret-value --secret-id ${{SECRET_ARN}} --query SecretString --region us-east-1 --output text)" > /dev/null 2>&1
+  # BuildingServerlessDockerImage:
+  #   type: build
+  #   title: Building Serverless Build Docker Image
+  #   image_name: 'stackbit-api-serverless'
+  #   working_directory: ./
+  #   dockerfile: src/serverless/Dockerfile
+  #   tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
+  #   build_arguments:
+  #     - NODE_ENV=${{NODE_ENV}}
+  #     - NPM_TOKEN=${{NPM_TOKEN}}
+  #     - AWS_ACCESS_KEY_ID=${{AWS_ACCESS_KEY_ID}}
+  #     - AWS_SECRET_ACCESS_KEY=${{AWS_SECRET_ACCESS_KEY}}
+  #     - STAGE=${{SERVERLESS_STAGE}}
+  #     - CONFIG_ENV=${{CONFIG_ENV}}
+  #     - STACKBIT_SECRETS=${{STACKBIT_SECRETS}}
+  # DeployingServerless:
+  #   title: Deploying Serverless Functions
+  #   image: '${{BuildingServerlessDockerImage}}'
+  #   working_directory: IMAGE_WORK_DIR

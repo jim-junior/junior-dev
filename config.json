@@ -1,0 +1,1161 @@
+{
+    "_envs": [
+        "local",
+        "dev",
+        "staging",
+        "prod"
+    ],
+    "server": {
+        "hostname": {
+            "local": "https://localhost:8082",
+            "dev": "https://dev-api.stackbit.com",
+            "staging": "https://stg-api.stackbit.com",
+            "prod": "https://api.stackbit.com"
+        },
+        "corsOrigin": {
+            "local": [
+                "http://localhost:8080",
+                "http://localhost:8000",
+                "http://localhost:9000",
+                "http://localhost:8084",
+                "https://localhost:8092",
+                "http://localhost:8090"
+            ],
+            "dev": [
+                "https://dev-app.stackbit.com",
+                "/stackbitapp\\.netlify\\.com$/",
+                "/www-stackbit-com-eabd1\\.netlify\\.com$/",
+                "https://develop.app.stackbit.com",
+                "http://localhost:8080",
+                "http://localhost:8084",
+                "https://dev-www.stackbit.com",
+                "https://develop.admin.stackbit.com",
+                "https://develop.widget.stackbit.com",
+                "https://assets.stackbit.com",
+                "https://bc.getjobox.com"
+            ],
+            "staging": [
+                "https://stg-app.stackbit.com",
+                "https://staging.app.stackbit.com",
+                "https://stg-www.stackbit.com",
+                "https://staging--www-stackbit-com-eabd1.netlify.app",
+                "https://staging.admin.stackbit.com",
+                "https://staging.widget.stackbit.com",
+                "https://assets.stackbit.com",
+                "https://bc.getjobox.com",
+                "http://localhost:8080"
+            ],
+            "prod": [
+                "https://app.stackbit.com",
+                "https://alpha.stackbit.com",
+                "https://master-studio.app.stackbit.com",
+                "https://www.stackbit.com",
+                "https://admin.stackbit.com",
+                "https://widget.stackbit.com",
+                "https://assets.stackbit.com",
+                "https://bc.getjobox.com",
+                "https://netlify-importer-manual.stackbit.com"
+            ]
+        },
+        "clientOrigin": {
+            "local": "http://localhost:8080",
+            "dev": "https://develop.app.stackbit.com",
+            "staging": "https://staging.app.stackbit.com",
+            "prod": "https://app.stackbit.com"
+        },
+        "netlifyAppDomain": {
+            "default": "stackbitapp.netlify.app"
+        },
+        "webhookHostname": {
+            "local": "https://localhost.stackbit.com",
+            "dev": "https://dev-api.stackbit.com",
+            "staging": "https://stg-api.stackbit.com",
+            "prod": "https://api.stackbit.com"
+        }
+    },
+    "features": {
+        "pullUseLambda": {
+            "local": false,
+            "dev": false,
+            "staging": false,
+            "prod": false
+        },
+        "devtoWebhook": {
+            "default": true,
+            "local": true
+        },
+        "secretsManager": {
+            "default": true
+        },
+        "containerHibernation": {
+            "default": true,
+            "local": false
+        },
+        "adminHeapdump": {
+            "default": true,
+            "prod": false
+        },
+        "studio": {
+            "default": true,
+            "prod": false
+        },
+        "schemalessContainer": {
+            "default": true
+        },
+        "advancedContentLoaderContainer": {
+            "default": true
+        },
+        "studioCodeEditor": {
+            "default": true
+        },
+        "localContainerMode": {
+            "default": false,
+            "local": false
+        },
+        "outputLocalContainerLogs": {
+            "default": false,
+            "local": true
+        },
+        "forceUpdateContainerUrl": {
+            "default": false
+        }
+    },
+    "mailgun": {
+        "domain": {
+            "local": "sandbox3657f90af1774fcfa2037481343eb3cb.mailgun.org",
+            "dev": "mail.stackbit.com",
+            "staging": "mail.stackbit.com",
+            "prod": "mail.stackbit.com"
+        },
+        "sendVerificationEmailOnSignup": {
+            "local": true,
+            "dev": true,
+            "staging": true,
+            "prod": true
+        },
+        "fromAddress": {
+            "default": "Stackbit App <info@stackbit.com>"
+        },
+        "sendToTestAccount": {
+            "local": true,
+            "dev": false,
+            "staging": false,
+            "prod": false
+        },
+        "testAccount": {
+            "default": "test@stackbit.com"
+        }
+    },
+    "mongo": {
+        "url": {
+            "local": "mongodb://127.0.0.1:27017/stackbit-api",
+            "dev": "mongodb://172.31.33.178:27017/stackbit-api",
+            "staging": "mongodb://10.0.0.124:27017/stackbit-api",
+            "prod": "mongodb://10.0.1.172:27017/stackbit-api"
+        },
+        "host": {
+            "local": "127.0.0.1",
+            "dev": "172.31.33.178",
+            "staging": "10.0.0.124",
+            "prod": "10.0.1.172"
+        }
+    },
+    "container": {
+        "env": {
+            "local": "staging",
+            "dev": "dev",
+            "staging": "staging",
+            "prod": "prod"
+        },
+        "snippetUrl": {
+            "local": "http://localhost:8080/snippet.js",
+            "dev": "https://develop.app.stackbit.com/snippet.js",
+            "staging": "https://staging.app.stackbit.com/snippet.js",
+            "prod": "https://app.stackbit.com/snippet.js"
+        },
+        "internalUrl": {
+            "default": "http://prod.renderer.stackbit.container.stackbit.com",
+            "local": "http://localhost:8090"
+        },
+        "bucket": {
+            "default": "stackbit-container"
+        },
+        "fastly": {
+            "apiBaseUrl": {
+                "default": "https://api.fastly.com/service/"
+            },
+            "spaceId": {
+                "default": "6xcj60tcQJEuE5uwZfNMWN"
+            }
+        },
+        "router": {
+            "url": {
+                "default": "http://staging.router.container.stackbit.com:5555",
+                "prod": "http://prod.config.router.container.stackbit.com:5555"
+            }
+        },
+        "shared": {
+            "projectsGithubUsername": {
+                "default": "Stackbit"
+            },
+            "projectsGithubEmail": {
+                "default": "projects@stackbit.com"
+            },
+            "projectsGithubUser": {
+                "default": "stackbit-projects"
+            },
+            "logs": {
+                "default": {
+                    "groupName": "/ecs/diverse-task-definition",
+                    "streamNamePrefix": "ecs/diverse-container/",
+                    "fetchLimit": 1000,
+                    "initialFetchLimit": 5000
+                }
+            },
+            "genericTaskDefinition": {
+                "default": "diverse-task-definition:240",
+                "local": "diverse-task-definition:240",
+                "dev": "diverse-task-definition:231",
+                "staging": "diverse-task-definition:234",
+                "prod": "diverse-task-definition:237"
+            },
+            "prepackagedTaskDefinitions": {
+                "default": {},
+                "local": {
+                    "gatsby": "diverse-task-definition:239",
+                    "nextjs": "diverse-task-definition:238"
+                },
+                "dev": {
+                    "gatsby": "diverse-task-definition:230",
+                    "nextjs": "diverse-task-definition:229"
+                },
+                "staging": {
+                    "gatsby": "diverse-task-definition:233",
+                    "nextjs": "diverse-task-definition:232"
+                },
+                "prod": {
+                    "gatsby": "diverse-task-definition:236",
+                    "nextjs": "diverse-task-definition:235"
+                }
+            },
+            "taskDetails": {
+                "default": {
+                    "cluster": "diverse-container",
+                    "taskDefinition": "diverse-task-definition:38"
+                },
+                "dev": {
+                    "cluster": "diverse-container",
+                    "taskDefinition": "diverse-task-definition:40"
+                },
+                "staging": {
+                    "cluster": "diverse-container",
+                    "taskDefinition": "diverse-task-definition:39"
+                },
+                "prod": {
+                    "cluster": "diverse-container",
+                    "taskDefinition": "diverse-task-definition:38"
+                }
+            }
+        }
+    },
+    "github": {
+        "orgName": {
+            "default": "stackbit"
+        },
+        "privateRepos": {
+            "default": false
+        },
+        "appId": {
+            "local": "30145",
+            "dev": "34441",
+            "staging": "34442",
+            "prod": "34443"
+        },
+        "appInstallUrl": {
+            "local": "https://github.com/apps/stackbit-app-local/installations/new",
+            "dev": "https://github.com/apps/stackbit-dev-app/installations/new",
+            "staging": "https://github.com/apps/stackbit-staging-app/installations/new",
+            "prod": "https://github.com/apps/stackbit-app/installations/new"
+        }
+    },
+    "google": {
+        "defaultScopes": {
+            "default": [
+                "profile",
+                "email"
+            ]
+        },
+        "allowedScopes": {
+            "default": [
+                "https://www.googleapis.com/auth/drive.readonly"
+            ]
+        }
+    },
+    "build": {
+        "buildApiBaseUrl": {
+            "local": "https://s3a1u1cywl.execute-api.us-east-1.amazonaws.com/dev",
+            "dev": "https://s3a1u1cywl.execute-api.us-east-1.amazonaws.com/dev",
+            "staging": "https://q2z3o8y02m.execute-api.us-east-1.amazonaws.com/staging",
+            "prod": "https://vi0ujtashh.execute-api.us-east-1.amazonaws.com/prod"
+        },
+        "themesBaseUrl": {
+            "local": "https://develop.themes.stackbit.com",
+            "dev": "https://develop.themes.stackbit.com",
+            "staging": "https://staging.themes.stackbit.com",
+            "prod": "https://themes.stackbit.com"
+        },
+        "adminBaseUrl": {
+            "local": "http://localhost:8084",
+            "dev": "https://develop.admin.stackbit.com",
+            "staging": "https://staging.admin.stackbit.com/",
+            "prod": "https://admin.stackbit.com/"
+        },
+        "stackbitWidget": {
+            "enabled": {
+                "default": false,
+                "local": true,
+                "dev": true,
+                "staging": true,
+                "prod": true
+            },
+            "widgetUrl": {
+                "dev": "https://develop.widget.stackbit.com/init.js",
+                "staging": "https://staging.widget.stackbit.com/init.js",
+                "prod": "https://widget.stackbit.com/init.js",
+                "local": "https://localhost:8092/init.js"
+            }
+        },
+        "stackbitWidgetForImportedSites": {
+            "enabled": {
+                "default": true,
+                "local": true,
+                "dev": true
+            }
+        },
+        "handcraftedNextjsThemes": {
+            "default": {
+                "https://github.com/stackbit-themes/starter-unibit": "https://github.com/stackbit-themes/starter-nextjs",
+                "https://github.com/stackbit-themes/diy-unibit": "https://github.com/stackbit-themes/diy-nextjs",
+                "https://github.com/stackbit-themes/azimuth-unibit": "https://github.com/stackbit-themes/azimuth-nextjs",
+                "https://github.com/stackbit-themes/exto-unibit": "https://github.com/stackbit-themes/exto-nextjs",
+                "https://github.com/stackbit-themes/ampersand-unibit": "https://github.com/stackbit-themes/ampersand-nextjs",
+                "https://github.com/stackbit-themes/fjord-unibit": "https://github.com/stackbit-themes/fjord-nextjs",
+                "https://github.com/stackbit-themes/libris-unibit": "https://github.com/stackbit-themes/libris-nextjs",
+                "https://github.com/stackbit-themes/vanilla-unibit": "https://github.com/stackbit-themes/vanilla-nextjs",
+                "https://github.com/stackbit-themes/fresh-unibit": "https://github.com/stackbit-themes/fresh-nextjs",
+                "https://github.com/stackbit-themes/personal-unibit": "https://github.com/stackbit-themes/personal-nextjs",
+                "https://github.com/stackbit-themes/agency-unibit": "https://github.com/stackbit-themes/agency-nextjs",
+                "https://github.com/stackbit-themes/startup-unibit": "https://github.com/stackbit-themes/startup-nextjs",
+                "https://github.com/stackbit-themes/app-unibit": "https://github.com/stackbit-themes/app-nextjs",
+                "https://github.com/stackbit-themes/event-unibit": "https://github.com/stackbit-themes/event-nextjs",
+                "https://github.com/stackbit-themes/book-unibit": "https://github.com/stackbit-themes/book-nextjs",
+                "https://github.com/stackbit-themes/podcaster-unibit": "https://github.com/stackbit-themes/podcaster-nextjs"
+            }
+        }
+    },
+    "contentful": {
+        "authorizationURL": {
+            "default": "https://be.contentful.com/oauth/authorize"
+        },
+        "tokenURL": {
+            "default": "https://be.contentful.com/oauth/token"
+        },
+        "profileURL": {
+            "default": "https://api.contentful.com/users/me"
+        }
+    },
+    "datocms": {
+        "authorizationURL": {
+            "default": "https://oauth.datocms.com/oauth/authorize"
+        },
+        "tokenURL": {
+            "default": "https://oauth.datocms.com/oauth/token"
+        },
+        "profileURL": {
+            "default": "https://account-api.datocms.com/account"
+        }
+    },
+    "devto": {
+        "authorizationURL": {
+            "default": "https://dev.to/oauth/authorize"
+        },
+        "tokenURL": {
+            "default": "https://dev.to/oauth/token"
+        },
+        "profileURL": {
+            "default": "https://dev.to/api/users/me"
+        }
+    },
+    "forestry": {
+        "apiEnabled": {
+            "default": true
+        },
+        "authorizationURL": {
+            "default": "https://app.forestry.io/oauth/authorize"
+        },
+        "tokenURL": {
+            "default": "https://app.forestry.io/oauth/token"
+        },
+        "profileURL": {
+            "default": "https://app.forestry.io/me"
+        }
+    },
+    "netlify": {
+        "authorizationURL": {
+            "default": "https://app.netlify.com/authorize"
+        },
+        "tokenURL": {
+            "default": "https://api.netlify.com/oauth/token"
+        },
+        "anonAccountSlug": {
+            "default": "stackbit-projects"
+        },
+        "anonFlowEnabled": {
+            "default": false,
+            "local": true,
+            "dev": true,
+            "staging": true,
+            "prod": true
+        },
+        "shared": {
+            "accountSlug": {
+                "default": "stackbit-user-projects"
+            },
+            "domain": {
+                "default": "stackbit.app"
+            }
+        }
+    },
+    "azure": {
+        "anonFlowEnabled": {
+            "default": false
+        },
+        "starterRepoUrl": {
+            "default": "https://github.com/stackbit/azure-marketplace-starter-static-web-app"
+        },
+        "loginUrl": {
+            "default": "https://login.microsoftonline.com"
+        },
+        "resourceManagementUrl": {
+            "default": "https://management.azure.com"
+        }
+    },
+    "digitalocean": {
+        "userProfileURL": {
+            "default": "https://api.digitalocean.com/v2/account"
+        },
+        "userAppsURL": {
+            "default": "https://cloud.digitalocean.com/apps/"
+        }
+    },
+    "importer": {
+        "medium": {
+            "bucket": {
+                "local": "medium-imports-dev",
+                "dev": "medium-imports-dev",
+                "staging": "medium-imports-dev",
+                "prod": "medium-imports"
+            }
+        }
+    },
+    "jobox": {
+        "userId": {
+            "default": "5d7a35c2eb1df93b4191041a"
+        },
+        "internalUrl": {
+            "default": "http://prod.renderer.jobox.container.stackbit.com",
+            "local": "http://localhost:8090"
+        },
+        "siteUrlBase": {
+            "default": "https://bc.getjobox.com/"
+        }
+    },
+    "segment": {
+        "workspace": {
+            "default": "stackbit"
+        }
+    },
+    "logging": {
+        "level": {
+            "default": "debug"
+        },
+        "morganFormat": {
+            "default": "[:remote-addr][:date[iso]] \":method :url HTTP/:http-version\" Status::status Response-Time::response-time(ms) Content-Length::res[content-length] SessionID:\":sessionId\" Referrer:\":referrer\" User-Agent:\":user-agent\" UserId::userId"
+        }
+    },
+    "sentry": {
+        "dsn": {
+            "default": "https://e6b593965fc146b79e30372bdd9e61ba@o295467.ingest.sentry.io/5413567"
+        }
+    },
+    "crisp": {
+        "enabled": {
+            "default": true
+        },
+        "websiteId": {
+            "default": "6f5e390a-e028-4b91-aaa1-6979aaa5aa21"
+        }
+    },
+    "stackbitFactory": {
+        "useLocal": {
+            "default": false,
+            "local": true,
+            "dev": false,
+            "staging": false,
+            "prod": false
+        },
+        "localPath": {
+            "default": "../stackbit-factory"
+        },
+        "installFolder": {
+            "default": "./data/stackbit-factory"
+        },
+        "includePrerelease": {
+            "default": false,
+            "local": true,
+            "dev": true,
+            "staging": true
+        },
+        "prereleaseTags": {
+            "default": null,
+            "staging": ["staging"]
+        }
+    },
+    "assetUpload": {
+        "bucket": {
+            "local": "staging-studio-image-upload",
+            "dev": "staging-studio-image-upload",
+            "staging": "staging-studio-image-upload",
+            "prod": "prod-studio-image-upload"
+        }
+    },
+    "customerTiers": {
+        "beta": {
+            "name": {
+                "default": "Beta User"
+            },
+            "attributes": {
+                "default": {
+                    "isFree": true,
+                    "isTrial": false
+                }
+            },
+            "features": {
+                "default": {
+                    "hpPreviews": false,
+                    "containerMaxInactivityTimeInMinutes": 30,
+                    "wysiwyg": true,
+                    "collaborators": 1,
+                    "environments": 2,
+                    "diff": true,
+                    "merge": true,
+                    "abTesting": false,
+                    "approval": true,
+                    "pageGranularity": true,
+                    "verifiedPublish": true,
+                    "crossPageDep": true,
+                    "undo": true,
+                    "scheduledPublish": true,
+                    "collaboratorRoles": false,
+                    "developerTools": true,
+                    "settingsConnectedServices": true,
+                    "settingsAdvanced": true,
+                    "supportAction": "contactPage",
+                    "hasViewerRole": true,
+                    "viewersCollaborators": 100
+                }
+            },
+            "upgradeHookScheme": {
+                "default": "2021a"
+            }
+        },
+        "developer": {
+            "name": {
+                "default": "Developer"
+            },
+            "attributes": {
+                "default": {
+                    "isFree": true,
+                    "isTrial": false
+                }
+            },
+            "features": {
+                "default": {
+                    "hpPreviews": false,
+                    "containerMaxInactivityTimeInMinutes": 30,
+                    "wysiwyg": true,
+                    "collaborators": 3,
+                    "environments": 0,
+                    "diff": false,
+                    "merge": false,
+                    "abTesting": false,
+                    "approval": false,
+                    "pageGranularity": true,
+                    "verifiedPublish": false,
+                    "crossPageDep": false,
+                    "undo": false,
+                    "scheduledPublish": false,
+                    "collaboratorRoles": false,
+                    "developerTools": true,
+                    "settingsConnectedServices": true,
+                    "settingsAdvanced": true,
+                    "supportAction": "contactPage",
+                    "hasViewerRole": true,
+                    "viewersCollaborators": 100
+                }
+            },
+            "upgradeHookScheme": {
+                "default": "2021a"
+            }
+        },
+        "pro": {
+            "name": {
+                "default": "Pro"
+            },
+            "attributes": {
+                "default": {
+                    "isFree": false,
+                    "isTrial": false
+                }
+            },
+            "stripeProductId": {
+                "default": "prod_IBlfdI7moPokKG",
+                "prod": "prod_IBqkjHNrEU585c"
+            },
+            "defaultPlan": {
+                "default": "price_1HbO7hHALtKJW3ReiqbosPXE",
+                "prod": "price_1HbT3SHALtKJW3Repwr3tElA"
+            },
+            "features": {
+                "default": {
+                    "hpPreviews": false,
+                    "containerMaxInactivityTimeInMinutes": 2160,
+                    "wysiwyg": true,
+                    "collaborators": 3,
+                    "environments": 2,
+                    "diff": false,
+                    "merge": false,
+                    "abTesting": false,
+                    "approval": false,
+                    "pageGranularity": true,
+                    "verifiedPublish": true,
+                    "crossPageDep": true,
+                    "undo": false,
+                    "scheduledPublish": false,
+                    "collaboratorRoles": false,
+                    "developerTools": true,
+                    "settingsConnectedServices": true,
+                    "settingsAdvanced": true,
+                    "supportAction": "contactPage",
+                    "hasViewerRole": true,
+                    "viewersCollaborators": 100
+                }
+            },
+            "upgradeHookScheme": {
+                "default": "2021a"
+            }
+        },
+        "business": {
+            "name": {
+                "default": "Business"
+            },
+            "attributes": {
+                "default": {
+                    "isFree": false,
+                    "isTrial": false
+                }
+            },
+            "stripeProductId": {
+                "default": "prod_IBkLhqF8dsq47V",
+                "prod": "prod_IBqkMHKvjZlP0I"
+            },
+            "defaultPlan": {
+                "default": "price_1HbMquHALtKJW3ReonOWSHTM",
+                "prod": "price_1HbT3KHALtKJW3RelZL5pHaW"
+            },
+            "features": {
+                "default": {
+                    "hpPreviews": true,
+                    "containerMaxInactivityTimeInMinutes": 30,
+                    "wysiwyg": true,
+                    "collaborators": 10,
+                    "environments": 6,
+                    "diff": true,
+                    "merge": false,
+                    "abTesting": false,
+                    "approval": false,
+                    "pageGranularity": true,
+                    "verifiedPublish": true,
+                    "crossPageDep": true,
+                    "undo": true,
+                    "scheduledPublish": true,
+                    "collaboratorRoles": true,
+                    "developerTools": true,
+                    "settingsConnectedServices": true,
+                    "settingsAdvanced": true,
+                    "supportAction": "contactPage",
+                    "hasViewerRole": true,
+                    "viewersCollaborators": 100
+                }
+            },
+            "upgradeHookScheme": {
+                "default": "2021a"
+            }
+        },
+        "enterprise": {
+            "name": {
+                "default": "Enterprise"
+            },
+            "attributes": {
+                "default": {
+                    "isFree": false,
+                    "isTrial": false
+                }
+            },
+            "features": {
+                "default": {
+                    "hpPreviews": true,
+                    "containerMaxInactivityTimeInMinutes": 30,
+                    "wysiwyg": true,
+                    "collaborators": 100,
+                    "environments": 6,
+                    "diff": true,
+                    "merge": true,
+                    "abTesting": true,
+                    "approval": true,
+                    "pageGranularity": true,
+                    "verifiedPublish": true,
+                    "crossPageDep": true,
+                    "undo": true,
+                    "scheduledPublish": true,
+                    "collaboratorRoles": true,
+                    "developerTools": true,
+                    "settingsConnectedServices": true,
+                    "settingsAdvanced": true,
+                    "supportAction": "contactPage",
+                    "hasViewerRole": true,
+                    "viewersCollaborators": 100
+                }
+            },
+            "upgradeHookScheme": {
+                "default": "2021a"
+            }
+        },
+        "nocode": {
+            "name": {
+                "default": "No Code"
+            },
+            "attributes": {
+                "default": {
+                    "isFree": false,
+                    "isTrial": false
+                }
+            },
+            "stripeProductId": {
+                "default": "prod_ICyxW3xMe85iQ1",
+                "prod": "prod_ICyuERtnVB9AfT"
+            },
+            "defaultPlan": {
+                "default": "price_1HcYzJHALtKJW3ReFUF0gPVI",
+                "prod": "price_1HcYwjHALtKJW3Rel6WNZN1y"
+            },
+            "features": {
+                "default": {
+                    "hpPreviews": false,
+                    "containerMaxInactivityTimeInMinutes": 30,
+                    "wysiwyg": true,
+                    "collaborators": 0,
+                    "environments": 0,
+                    "diff": false,
+                    "merge": false,
+                    "abTesting": false,
+                    "approval": false,
+                    "pageGranularity": false,
+                    "verifiedPublish": true,
+                    "crossPageDep": true,
+                    "undo": false,
+                    "scheduledPublish": false,
+                    "collaboratorRoles": false,
+                    "developerTools": false,
+                    "settingsConnectedServices": false,
+                    "settingsAdvanced": false,
+                    "supportAction": "email",
+                    "hasViewerRole": true,
+                    "viewersCollaborators": 100
+                }
+            },
+            "upgradeHookScheme": {
+                "default": "2021a"
+            }
+        },
+        "2021a-free": {
+            "name": {
+                "default": "Free"
+            },
+            "attributes": {
+                "default": {
+                    "isFree": true,
+                    "isTrial": false
+                }
+            },
+            "features": {
+                "default": {
+                    "hpPreviews": false,
+                    "containerMaxInactivityTimeInMinutes": 30,
+                    "wysiwyg": true,
+                    "collaborators": 0,
+                    "environments": 0,
+                    "diff": false,
+                    "merge": false,
+                    "abTesting": false,
+                    "approval": false,
+                    "pageGranularity": false,
+                    "verifiedPublish": false,
+                    "crossPageDep": false,
+                    "undo": false,
+                    "scheduledPublish": false,
+                    "collaboratorRoles": false,
+                    "developerTools": true,
+                    "settingsConnectedServices": true,
+                    "settingsAdvanced": true,
+                    "supportAction": "contactPage",
+                    "hasViewerRole": true,
+                    "viewersCollaborators": 100
+                }
+            },
+            "upgradeHookScheme": {
+                "default": "2021a"
+            }
+        },
+        "2021a-pro": {
+            "name": {
+                "default": "Pro"
+            },
+            "attributes": {
+                "default": {
+                    "isFree": false,
+                    "isTrial": false,
+                    "downgradesTo": "2021a-free"
+                }
+            },
+            "stripeProductId": {
+                "default": "prod_Ikfb5O3NTAPnfE",
+                "prod": "prod_IkfcPGa7ryz8a9"
+            },
+            "defaultPlan": {
+                "default": "price_1I9AFtHALtKJW3RePctP8IcM",
+                "prod": "price_1I9AGmHALtKJW3RerK53z8X9"
+            },
+            "features": {
+                "default": {
+                    "hpPreviews": false,
+                    "containerMaxInactivityTimeInMinutes": 1440,
+                    "wysiwyg": true,
+                    "collaborators": 3,
+                    "environments": 0,
+                    "diff": false,
+                    "merge": false,
+                    "abTesting": false,
+                    "approval": false,
+                    "pageGranularity": true,
+                    "verifiedPublish": false,
+                    "crossPageDep": false,
+                    "undo": false,
+                    "scheduledPublish": false,
+                    "collaboratorRoles": false,
+                    "developerTools": true,
+                    "settingsConnectedServices": true,
+                    "settingsAdvanced": true,
+                    "supportAction": "contactPage",
+                    "hasViewerRole": true,
+                    "viewersCollaborators": 100
+                },
+                "prod": {
+                    "hpPreviews": true
+                }
+            },
+            "upgradeHookScheme": {
+                "default": "2021a"
+            }
+        },
+        "2021a-business": {
+            "name": {
+                "default": "Business"
+            },
+            "attributes": {
+                "default": {
+                    "isFree": false,
+                    "isTrial": false,
+                    "downgradesTo": "2021a-free"
+                }
+            },
+            "stripeProductId": {
+                "default": "prod_IkfbV68CO6q1f7",
+                "prod": "prod_Ikfb62WAZD3hKp"
+            },
+            "defaultPlan": {
+                "default": "price_1I9AG9HALtKJW3ReMBV3ue8D",
+                "prod": "price_1I9AGRHALtKJW3ReXF4UsPvp"
+            },
+            "features": {
+                "default": {
+                    "hpPreviews": false,
+                    "containerMaxInactivityTimeInMinutes": 1440,
+                    "wysiwyg": true,
+                    "collaborators": 9,
+                    "environments": 2,
+                    "diff": false,
+                    "merge": false,
+                    "abTesting": false,
+                    "approval": false,
+                    "pageGranularity": true,
+                    "verifiedPublish": false,
+                    "crossPageDep": false,
+                    "undo": false,
+                    "scheduledPublish": true,
+                    "collaboratorRoles": true,
+                    "developerTools": true,
+                    "settingsConnectedServices": true,
+                    "settingsAdvanced": true,
+                    "supportAction": "contactPage",
+                    "hasViewerRole": true,
+                    "viewersCollaborators": 100
+                },
+                "prod": {
+                    "hpPreviews": true
+                }
+            },
+            "upgradeHookScheme": {
+                "default": "2021a"
+            }
+        },
+        "2021a-pro-trial": {
+            "name": {
+                "default": "Free Trial (Pro)"
+            },
+            "attributes": {
+                "default": {
+                    "isFree": false,
+                    "isTrial": true,
+                    "trialTierOf": "2021a-pro",
+                    "trialDays": 7,
+                    "downgradesTo": "2021a-free",
+                    "openToTierIds": [
+                        "developer",
+                        "beta",
+                        "2021a-free"
+                    ],
+                    "disqualifyingPastTierIds": [
+                        "2021a-pro",
+                        "2021a-business",
+                        "2021a-pro-trial",
+                        "2021a-business-trial"
+                    ]
+                }
+            }
+        },
+        "2021a-business-trial": {
+            "name": {
+                "default": "Free Trial (Business)"
+            },
+            "attributes": {
+                "default": {
+                    "isFree": false,
+                    "isTrial": true,
+                    "trialTierOf": "2021a-business",
+                    "trialDays": 7,
+                    "downgradesTo": "2021a-free",
+                    "openToTierIds": [
+                        "developer",
+                        "beta",
+                        "2021a-free",
+                        "2021a-pro",
+                        "2021a-pro-trial"
+                    ],
+                    "disqualifyingPastTierIds": [
+                        "2021a-business",
+                        "2021a-business-trial"
+                    ]
+                }
+            }
+        }
+    },
+    "upgradeHookSchemes": {
+        "2021a": {
+            "default": {
+                "splitTesting": {
+                    "trialTiers": [
+                        {
+                            "id": "2021a-business-trial"
+                        }
+                    ]
+                },
+                "granularPublishing": {
+                    "trialTiers": [
+                        {
+                            "id": "2021a-pro-trial"
+                        },
+                        {
+                            "id": "2021a-business-trial"
+                        }
+                    ]
+                },
+                "scheduledPublishing": {
+                    "trialTiers": [
+                        {
+                            "id": "2021a-business-trial"
+                        }
+                    ]
+                },
+                "collaborators": {
+                    "trialTiers": [
+                        {
+                            "id": "2021a-pro-trial"
+                        },
+                        {
+                            "id": "2021a-business-trial"
+                        }
+                    ]
+                },
+                "collaboratorRoles": {
+                    "trialTiers": [
+                        {
+                            "id": "2021a-business-trial"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "userGroups": {
+        "regular": {
+            "features": {
+                "default": {
+                    "projectDeploymentShowSurvey": true,
+                    "projectDeploymentShowVerifyEmail": true,
+                    "settingsConnectDomainCard": true,
+                    "settingsManageSubscriptionCard": false,
+                    "publishPopupShowBetaInfo": true,
+                    "supportEmail": "hello",
+                    "defaultCustomerTier": "2021a-free"
+                }
+            }
+        },
+        "nocode": {
+            "features": {
+                "default": {
+                    "trialDaysFromCreation": 7,
+                    "simplifiedUI": true,
+                    "projectDeploymentShowSurvey": false,
+                    "projectDeploymentShowVerifyEmail": true,
+                    "settingsConnectDomainCard": true,
+                    "settingsManageSubscriptionCard": true,
+                    "publishPopupShowBetaInfo": true,
+                    "supportEmail": "nocode",
+                    "defaultCustomerTier": "nocode"
+                }
+            }
+        }
+    },
+    "scheduledPublish": {
+        "lambdaArn": {
+            "local": "arn:aws:lambda:us-east-1:211184604168:function:stackbit-scheduled-publishing-local",
+            "dev": "arn:aws:lambda:us-east-1:211184604168:function:stackbit-scheduled-publishing-local",
+            "staging": "arn:aws:lambda:us-east-1:211184604168:function:stackbit-scheduled-publishing-staging",
+            "prod": "arn:aws:lambda:us-east-1:211184604168:function:stackbit-scheduled-publishing-prod"
+        }
+    },
+    "slack": {
+        "sendNotifications": {
+            "local": false,
+            "dev": false,
+            "staging": false,
+            "prod": true
+        },
+        "mongoBackupWebhookId": {
+            "default": "TAJFZAGNL/BDQLWN4QP/gn3v2obIfIRh6pfZeE1Uv6uo"
+        },
+        "leadsCustomTheme": {
+            "default": "TAJFZAGNL/B01FHAV7NG0/yk6OpbR1X6g71jmEso931fnW"
+        },
+        "leadsImportSite": {
+            "default": "TAJFZAGNL/B012A3QTGNL/dSj0QkgnrvVOSKEb7G5ZKvRB"
+        }
+    },
+    "insights": {
+        "netlifyAnalyticsBaseUrl": {
+            "default": "https://analytics.services.netlify.com/v1"
+        },
+        "netlifyWidgetSiteId": {
+            "default": "ca6812dd-73d7-49f3-9e6c-a949ce2ff696"
+        }
+    },
+    "analyticsDb": {
+        "url": {
+            "default": ""
+        }
+    },
+    "customer": {
+        "transactionalMessages": {
+            "requestPublish": {
+                "default": 2
+            },
+            "requestedPublishDone": {
+                "default": 3
+            },
+            "publishNotificationForViewers": {
+                "default": 10,
+                "prod": 11
+            },
+            "inviteCollaborator": {
+                "default": 11,
+                "prod": 12
+            },
+            "contactForm": {
+                "default": 12,
+                "prod": 13
+            },
+            "plans": {
+                "2021a-pro-trial": {
+                    "default": {
+                        "started": 4
+                    }
+                },
+                "2021a-pro": {
+                    "default": {
+                        "started": 5,
+                        "cancelled": 6
+                    }
+                },
+                "2021a-business-trial": {
+                    "default": {
+                        "started": 7
+                    }
+                },
+                "2021a-business": {
+                    "default": {
+                        "started": 8,
+                        "cancelled": 9
+                    }
+                }
+            },
+            "importEnquiry": {
+                "default": 14,
+                "local": 13,
+                "dev": 13,
+                "staging": 13,
+                "prod": 14
+            }
+        }
+    },
+    "v2themes": {
+        "default": [
+            "https://github.com/stackbit/stackbit-nextjs-starter"
+        ]
+    },
+    "v2deployments": {
+        "default": [
+            "netlify"
+        ]
+    }
+}

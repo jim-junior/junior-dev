@@ -1,0 +1,6 @@
+securityGroupIds:
+  - sg-02419c2444862cc62
+subnetIds:
+  - subnet-09a69ed845537446f
+  - subnet-0b6860fd9c8835914
+warmupEnabled: false

@@ -1,0 +1,46 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: stackbit-functions
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  timeout: 30
+  stage: ${opt:stage, self:custom.defaultStage}
+  vpc:
+    securityGroupIds: ${file(./src/serverless/serverless.config.${self:provider.stage}.yml):securityGroupIds}
+    subnetIds: ${file(./src/serverless/serverless.config.${self:provider.stage}.yml):subnetIds}
+  environment:
+    STACKBIT_SECRETS: ${opt:secrets, self:custom.secrets}
+plugins:
+  - serverless-webpack
+custom:
+  defaultStage: dev
+  secrets: ''
+  webpack:
+    webpackConfig: src/serverless/webpack.config.js   # Name of webpack configuration file
+    includeModules: true   # Node modules configuration for packaging
+    packager: 'npm'   # Packager that will be used to package your external modules
+functions:
+  pull:
+    handler: src/serverless/handler.pull
+    events:
+      - http:
+          method: POST
+          path: pull/{projectId}
+      - schedule:
+          rate: rate(5 minutes)
+          enabled: ${file(./src/serverless/serverless.config.${self:provider.stage}.yml):warmupEnabled}
+          input:
+            warmup: true

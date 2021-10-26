@@ -1,0 +1,41 @@
+const express = require('express');
+const router = express.Router();
+const adminRoutes = require('./routes/admin.routes');
+const {isAdmin, isAdminOrToken} = require('./router.utils');
+
+router.use(isAdminOrToken);
+
+router.get('/users/:userId/projects', isAdmin, adminRoutes.getProjectsByUserId);
+router.get('/users', isAdmin, adminRoutes.getUsers);
+router.post('/users/query', isAdmin, adminRoutes.queryUsers);
+router.get('/users/count', isAdmin, adminRoutes.countUsers);
+router.get('/users/:id', isAdmin, adminRoutes.getUserById);
+router.post('/users/:id/auth-repo', isAdmin, adminRoutes.getAuthenticatedRepo);
+router.post('/users/:id/analyze-repo', isAdmin, adminRoutes.analyzeRepo);
+router.get('/user', isAdmin, adminRoutes.getUser);
+router.get('/containers', isAdmin, adminRoutes.getContainers);
+router.get('/project', isAdmin, adminRoutes.getProject);
+router.put('/project/:id', isAdmin, adminRoutes.updateProject);
+router.get('/projects', isAdmin, adminRoutes.getProjects);
+router.get('/projects/count', isAdmin, adminRoutes.countProjects);
+router.post('/projects/query', isAdmin, adminRoutes.queryProjects);
+router.get('/projects/:id', isAdmin, adminRoutes.getProjectById);
+router.post('/projects/:id/stop', isAdmin, adminRoutes.stopProject);
+router.post('/projects/:id/redeploy', isAdmin, adminRoutes.redeployProject);
+router.post('/projects/:id/set-container-url', isAdmin, adminRoutes.setContainerUrlForProject);
+router.post('/projects/:id/reset-health', isAdmin, adminRoutes.resetHealth);
+router.post('/projects/:id/preview-branch', isAdmin, adminRoutes.addPreviewBranch);
+router.get('/custom-projects', isAdmin, adminRoutes.getCustomProjects);
+router.get('/custom-projects-totals', isAdmin, adminRoutes.getCustomProjectsTotals);
+router.post('/backup-db', isAdminOrToken, adminRoutes.backupDB);
+router.post('/maintenance-tasks', isAdminOrToken, adminRoutes.maintenanceTasks);
+router.post('/upgrade-containers', isAdminOrToken, adminRoutes.upgradeContainers);
+router.get('/get-backups', isAdmin, adminRoutes.getBackups);
+router.post('/heapdump', isAdmin, adminRoutes.writeHeapdump);
+router.get('/project/:id/generate-realscore', isAdmin, adminRoutes.updateProjectRealScoreAutoScore);
+router.post('/fetch-insights', isAdmin, adminRoutes.fetchInsights);
+router.post('/classify-projects', isAdmin, adminRoutes.classifyProjects);
+router.post('/classify-projects-and-save', isAdminOrToken, adminRoutes.classifyProjectsAndSave);
+router.post('/notify-viewers-collaborators', isAdminOrToken, adminRoutes.notifyViewersCollaborators);
+
+module.exports = router;

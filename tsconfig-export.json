@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "es2020",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "checkJs": false,
+        "noUncheckedIndexedAccess": true,
+        "useUnknownInCatchVariables": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "lib": ["es2020"],
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "outFile": "dist/export.d.ts"
+    },
+    "files": [
+        "src/@types/artisanal-names.d.ts",
+        "src/@types/customerio-node.d.ts",
+        "src/@types/mongoose-delete.d.ts",
+        "src/@types/passport-local-mongoose.d.ts",
+        "src/external-api-types.ts"
+    ]
+}

@@ -1,0 +1,13 @@
+/.idea
+/base-config.js
+/src/base-config.js
+/src/base-config.ts
+node_modules/
+.vscode
+*.DS_Store
+data/gen
+data/stackbit-factory
+/dist
+\#*\#
+/coverage
+/globalConfig.json
